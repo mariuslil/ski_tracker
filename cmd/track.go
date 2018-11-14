@@ -1,4 +1,4 @@
-package snowtrack
+package main
 
 
 type SnowTracksMongoDB struct {

@@ -1,4 +1,4 @@
-package snowtrack
+package main
 
 import "os"
 
@@ -28,11 +28,10 @@ func (db *SnowTracksMongoDB) Init() {
 }
 
 func getPort() string {
-	var p string
-	if port := os.Getenv("PORT"); port != "" {
-		p = ":" + port
-	} else {
-		p = ":8080"
+	var port = os.Getenv("PORT")
+
+	if port == "" {
+		port = "8080"
 	}
-	return ":" + p
+	return ":" + port
 }

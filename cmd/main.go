@@ -1,20 +1,19 @@
-package snowtrack
+package main
 
 import (
 	"net/http"
 )
 
-
-var Global_db SnowTrackStorage
+var db SnowTrackStorage
 var SnowTracks SnowTrack
 
 func main() {
 
-	Global_db = &SnowTracksMongoDB{"mongodb://olebgr:password1@ds261253.mlab.com:61253/snowtracks",
+	db = &SnowTracksMongoDB{"mongodb://olebgr:password1@ds261253.mlab.com:61253/snowtracks",
 	"snowtracks"}
 
-	Global_db.Init()
-	http.HandleFunc("/snowtrack/api", apiHandler)
+	db.Init()
+	http.HandleFunc("/snowtrack/", apiHandler)
 	http.ListenAndServe(getPort(), nil)
 
 }

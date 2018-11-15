@@ -1,7 +1,5 @@
 package main
 
-import "time"
-
 type SnowTracksMongoDB struct {
 	DatabaseURL string
 	DatabaseName string
@@ -13,7 +11,7 @@ type SnowTrackStorage interface {
 }
 
 type SnowTrack struct {
-	Mountain string `json:"Mountain"`
-	Length float32 `json: "Length"`
-	Time time.Duration `json: "Time"`
+	Name string `json:"name"`
+	Mountain string `json:"mountain"`
+	Length float32 `json: "length"`
 }

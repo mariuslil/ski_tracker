@@ -35,3 +35,13 @@ func getPort() string {
 	}
 	return ":" + port
 }
+
+func exists(n string) bool{
+	s := SkiersDB{}
+	for k, _ := range s.skiers{
+		if k == n {
+			return false
+		}
+	}
+	return true
+}

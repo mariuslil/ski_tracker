@@ -13,7 +13,8 @@ func main() {
 	"snowtracks"}
 
 	db.Init()
-	http.HandleFunc("/snowtrack/", apiHandler)
+	http.HandleFunc("/snowtrack/track/", trackHandler)
+	http.HandleFunc("/snowtrack/skier/", skierHandler)
 	http.ListenAndServe(getPort(), nil)
 
 }

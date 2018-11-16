@@ -15,3 +15,4 @@ type SnowTrack struct {
 	Mountain string `json:"mountain"`
 	Length float32 `json: "length"`
 }
+

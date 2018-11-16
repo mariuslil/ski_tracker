@@ -1,6 +1,9 @@
 package main
 
-import "os"
+import (
+	"net/http"
+	"os"
+)
 
 func (db *SnowTrack) Init() {
 	db.SnowTracks = make(map[int]SnowTrack)

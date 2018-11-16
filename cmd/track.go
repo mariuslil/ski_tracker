@@ -1,6 +1,16 @@
 package main
 
-import "time"
+
+type SnowTrack struct {
+	Name string `json:"name"`
+	Mountain string `json:"mountain"`
+	Length float32 `json: "length"`
+}
+
+type TrackService interface {
+	AddTrack(t *SnowTrack) error
+	GetTrack(track string) (*SnowTrack, error)
+}
 
 type SnowTracksMongoDB struct {
 	DatabaseURL string
@@ -10,10 +20,4 @@ type SnowTracksMongoDB struct {
 
 type SnowTrackStorage interface {
 	Init()
-}
-
-type SnowTrack struct {
-	Mountain string `json:"Mountain"`
-	Length float32 `json: "Length"`
-	Time time.Duration `json: "Time"`
 }

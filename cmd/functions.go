@@ -1,6 +1,9 @@
 package main
 
-import "os"
+import (
+	"net/http"
+	"os"
+)
 
 func (db *SnowTrack) Init() {
 	db.SnowTracks = make(map[int]SnowTrack)
@@ -34,14 +37,4 @@ func getPort() string {
 		port = "8080"
 	}
 	return ":" + port
-}
-
-func exists(n string) bool{
-	s := SkiersDB{}
-	for k, _ := range s.skiers{
-		if k == n {
-			return false
-		}
-	}
-	return true
 }

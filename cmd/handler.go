@@ -1,5 +1,5 @@
 package main
-// YOLO
+
 import (
 	"net/http"
 	"strings"

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"net/http"
 	"time"
 )
 
@@ -12,24 +11,9 @@ type Skier struct {
 	Tracks []SnowTrack `json:"tracks"`
 }
 
-type SkiersDB struct {
-	skiers map[string]Skier
-}
-
-
-func (db *SkiersDB) Init() {
-	db.skiers = make(map[string]Skier)
-}
-
-func (db *SkiersDB) Add(w http.ResponseWriter, s Skier) string {
-	if !exists(s.Name) {
-		db.skiers[s.Name] = s
-	} else {
-		http.Error(w, "Skier allready exists", http.StatusBadRequest)
-	}
-}
-
-func (db *SkiersDB) Get(n string) (Skier, bool) {
-	s, ok := db.skiers[n]
-	return s, ok
+type SkierService interface {
+	AddSkier(s *Skier) error
+	GetSkier(name string) (*Skier, error)
+	AddTrack(skier string, track string) error
+	AddRide(skier string, track string, time time.Duration, length int) error
 }

@@ -14,6 +14,7 @@ func skierHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 	case "GET":
+		url := strings.Split(r.URL.Path, "/")
 
 
 

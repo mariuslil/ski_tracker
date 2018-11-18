@@ -15,7 +15,7 @@ type TrackService interface {
 type SnowTracksMongoDB struct {
 	DatabaseURL string
 	DatabaseName string
-	//TracksCollectionName string
+	SnowTracksCollectionName string
 }
 
 type SnowTrackStorage interface {

@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-func (db *SnowTrack) Init() {
+func (track *SnowTrack) Init() {
 	db.SnowTracks = make(map[int]SnowTrack)
 }
 

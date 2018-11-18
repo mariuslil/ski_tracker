@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2/bson"
+	"math/rand"
+)
 
 
 func (db *SnowTracksMongoDB) Init() {
@@ -29,11 +34,11 @@ func (db *SnowTracksMongoDB) Get(id int) (SnowTrack, bool) {
 	if err != nil {
 		panic(err)
 	}
-	defer session.Close().
+	defer session.Close()
 
 	snowtrack := SnowTrack{}
 	allWasGood := true
-	err = session.DB(db.DatabaseName).C(db.SnowTracksCollectionName).Find(bson.M{"id": id}).One(&SnowTrack)
+	err = session.DB(db.DatabaseName).C(db.SnowTracksCollectionName).Find(bson.M{"id": id}).One(snowtrack)
 	if err != nil {
 		allWasGood = false
 	}

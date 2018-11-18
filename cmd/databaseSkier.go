@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2/bson"
+	"math/rand"
+)
 
 
 func (db *SkiersMongoDB) Init() {
@@ -29,7 +34,7 @@ func (db *SkiersMongoDB) Get(id int) (Skier, bool) {
 	if err != nil {
 		panic(err)
 	}
-	defer session.Close().
+	defer session.Close()
 
 	skier := Skier{}
 	allWasGood := true

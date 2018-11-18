@@ -2,7 +2,6 @@ package main
 
 import (
 	"net/http"
-	"strings"
 )
 
 func skierHandler(w http.ResponseWriter, r *http.Request) {
@@ -14,7 +13,7 @@ func skierHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 	case "GET":
-		url := strings.Split(r.URL.Path, "/")
+		//url := strings.Split(r.URL.Path, "/")
 
 
 
@@ -30,7 +29,7 @@ func trackHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		url := strings.Split(r.URL.Path, "/")
+		//url := strings.Split(r.URL.Path, "/")
 
 
 	case "GET":

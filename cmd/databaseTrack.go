@@ -38,7 +38,7 @@ func (db *SnowTracksMongoDB) Get(id int) (SnowTrack, bool) {
 
 	snowtrack := SnowTrack{}
 	allWasGood := true
-	err = session.DB(db.DatabaseName).C(db.SnowTracksCollectionName).Find(bson.M{"id": id}).One(&SnowTrack)
+	err = session.DB(db.DatabaseName).C(db.SnowTracksCollectionName).Find(bson.M{"id": id}).One(snowtrack)
 	if err != nil {
 		allWasGood = false
 	}

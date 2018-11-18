@@ -2,9 +2,6 @@ package main
 
 import "fmt"
 
-func (db *SnowTrack) Init() {
-	db.SnowTracks = make(map[int]SnowTrack)
-}
 
 func (db *SnowTracksMongoDB) Init() {
 	session, err := mgo.Dial(db.DatabaseName)

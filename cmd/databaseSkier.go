@@ -11,7 +11,7 @@ import (
 
 func (db *SkiersMongoDB) Init() {
 	session, err := mgo.Dial(db.DatabaseURL)
-	if err != nil{
+	if err != nil {
 		panic(err)
 	}
 	defer session.Close()

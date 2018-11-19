@@ -112,7 +112,7 @@ func (db *SnowTracksMongoDB) GetAll() []SnowTrack {
 	}
 	defer session.Close()
 
-	var all []SnowTrack{}
+	var all []SnowTrack
 
 	err = session.DB(db.DatabaseName).C(db.SnowTracksCollectionName).Find(bson.M{}).All(all)
 	if err != nil {

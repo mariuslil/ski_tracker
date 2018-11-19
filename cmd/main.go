@@ -19,6 +19,7 @@ func main() {
 		"skiers", "skiers"}
 
 	dbTracks.Init()
+	dbSkiers.Init()
 	http.HandleFunc("/snowtrack/track/", trackHandler)
 	http.HandleFunc("/snowtrack/skier/", skierHandler)
 	http.HandleFunc("/snowtracks/api", apiHandler)

@@ -29,7 +29,7 @@ func (db *SkiersMongoDB) Init() {
 	}
 }
 
-func (db *SkiersMongoDB) Get(id int) (Skier, bool) {
+func (db *SkiersMongoDB) Get(id string) (Skier, bool) {
 	session, err := mgo.Dial(db.DatabaseURL)
 	if err != nil {
 		panic(err)

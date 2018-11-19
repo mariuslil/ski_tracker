@@ -29,7 +29,7 @@ func (db *SnowTracksMongoDB) Init() {
 	}
 }
 
-func (db *SnowTracksMongoDB) Get(id int) (SnowTrack, bool) {
+func (db *SnowTracksMongoDB) Get(id string) (SnowTrack, bool) {
 	session, err := mgo.Dial(db.DatabaseURL)
 	if err != nil {
 		panic(err)

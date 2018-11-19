@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"strings"
 )
 
 func skierHandler(w http.ResponseWriter, r *http.Request) {

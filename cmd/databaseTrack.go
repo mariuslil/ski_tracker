@@ -5,6 +5,7 @@ import (
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 	"math/rand"
+	"strconv"
 )
 
 
@@ -59,12 +60,12 @@ func (db *SnowTracksMongoDB) Add(t SnowTrack) int {
 	id := rand.Int()
 
 	// Checking if track exists in db
-	_, ok := db.Get(id)
+	_, ok := db.Get(strconv.Itoa(id))
 
 	// Creating a new id if it exists
 	for ok {
 		id = rand.Int()
-		_, ok = db.Get(id)
+		_, ok = db.Get(strconv.Itoa(id))
 	}
 
 	err = session.DB(db.DatabaseName).C(db.SnowTracksCollectionName).Insert(t)

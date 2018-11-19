@@ -17,3 +17,13 @@ type SkierService interface {
 	AddTrack(skier string, track string) error
 	AddRide(skier string, track string, time time.Duration, length int) error
 }
+
+type SkiersMongoDB struct {
+	DatabaseURL string
+	DatabaseName string
+	SkiersCollectionName string
+}
+
+type SkiersStorage interface {
+	Init()
+}

@@ -4,14 +4,18 @@ import (
 	"net/http"
 )
 
-var db SnowTrackStorage
+var dbTracks SnowTrackStorage
+var dbSkiers SkiersStorage
+var Skiers Skier
 var SnowTracks SnowTrack
 
 func main() {
-	db = &SnowTracksMongoDB{"mongodb://olebgr:password1@ds261253.mlab.com:61253/snowtracks",
-	"snowtracks"}
+	dbTracks = &SnowTracksMongoDB{"mongodb://olebgr:password1@ds261253.mlab.com:61253/snowtracks",
+	"snowtracks", "tracks"}
+	dbSkiers = &SkiersMongoDB{"mongodb://olebgr:password1@ds261253.mlab.com:61253/snowtracks",
+		"skiers", "skiers"}
 
-	db.Init()
+	dbTracks.Init()
 	http.HandleFunc("/snowtrack/track/", trackHandler)
 	http.HandleFunc("/snowtrack/skier/", skierHandler)
 	http.ListenAndServe(getPort(), nil)

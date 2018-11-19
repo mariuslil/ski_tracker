@@ -1,6 +1,11 @@
 {
 	"comment": "",
 	"ignore": "test",
-	"package": [],
+	"package": [
+		{
+			"path": "mgo.v2",
+			"revision": ""
+		}
+	],
 	"rootPath": "bitbucket.org/marlil/snowtrack"
 }

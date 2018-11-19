@@ -22,7 +22,7 @@ func main() {
 	dbSkiers.Init()
 	http.HandleFunc("/snowtrack/track/", trackHandler)
 	http.HandleFunc("/snowtrack/skier/", skierHandler)
-	http.HandleFunc("/snowtracks/api", apiHandler)
+	http.HandleFunc("/snowtrack/api/", apiHandler)
 	http.ListenAndServe(getPort(), nil)
 
 }

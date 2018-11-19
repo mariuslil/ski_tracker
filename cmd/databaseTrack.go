@@ -17,7 +17,7 @@ func (db *SnowTracksMongoDB) Init() {
 	defer session.Close()
 
 	index := mgo.Index{
-		Key: []string{},
+		Key: []string{"trackid"},
 		Unique: true,
 		DropDups: true,
 		Background: true,

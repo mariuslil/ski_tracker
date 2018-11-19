@@ -17,7 +17,7 @@ func (db *SkiersMongoDB) Init() {
 	defer session.Close()
 
 	index := mgo.Index{
-		Key: []string{},
+		Key: []string{"skierID"},
 		Unique: true,
 		DropDups: true,
 		Background: true,

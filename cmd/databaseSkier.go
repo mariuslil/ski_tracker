@@ -114,9 +114,9 @@ func (db *SkiersMongoDB) GetAll() []Skier {
 	}
 	defer session.Close()
 
-	var all []Skier{}
+	var all []Skier
 
-	err = session.DB(db.DatabaseName).C(db.).Find(bson.M{}).All(all)
+	err = session.DB(db.DatabaseName).C(db.SkiersCollectionName).Find(bson.M{}).All(all)
 	if err != nil {
 		return []Skier{}
 	}

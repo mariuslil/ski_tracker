@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"strings"
 )
 
 func skierHandler(w http.ResponseWriter, r *http.Request) {
@@ -13,7 +14,7 @@ func skierHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 	case "GET":
-		url := strings.Split(r.URL.Path, "/")
+		//url := strings.Split(r.URL.Path, "/")
 		http.Header.Add(w.Header(), "content-type", "text/plain")
 
 

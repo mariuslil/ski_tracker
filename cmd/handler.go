@@ -15,6 +15,7 @@ func skierHandler(w http.ResponseWriter, r *http.Request) {
 
 	case "GET":
 		url := strings.Split(r.URL.Path, "/")
+		http.Header.Add(w.Header(), "content-type", "text/plain")
 
 
 
@@ -34,8 +35,27 @@ func trackHandler(w http.ResponseWriter, r *http.Request) {
 
 
 	case "GET":
+		if r.Body == nil {
+			http.Error(w, "Worng URL", http.StatusBadRequest)
+			return
+		}
 
+		//TODO Get all the tracks, json or plain text?
 
 
 	}
+}
+
+func apiHandler(w http.ResponseWriter, r *http.Request) {
+	url := strings.Split(r.URL.Path, "/")
+
+	if r.Method == "GET" {
+		if url[2] == "api" {
+			GetAPIinfo(&w)
+		} else {
+			http.Error(w, http.StatusText(404), http.StatusNotFound)
+			return
+		}
+	}
+
 }

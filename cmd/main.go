@@ -15,7 +15,7 @@ func main() {
 	startTime = time.Now()
 	dbTracks = &SnowTracksMongoDB{"mongodb://olebgr:password1@ds261253.mlab.com:61253/snowtracks",
 	"snowtracks", "tracks"}
-	dbSkiers = &SkiersMongoDB{"mongodb://olebgr:password1@mongodb@ds211774.mlab.com:11774/skiers",
+	dbSkiers = &SkiersMongoDB{"mongodb://olebgr:password1@ds211774.mlab.com:11774/skiers",
 		"skiers", "skiers"}
 
 	dbTracks.Init()

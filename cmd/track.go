@@ -27,33 +27,3 @@ type SnowTrackStorage interface {
 	getField(field string, id int) (string, bool)
 	GetAll() []SnowTrack
 }
-
-type TrackDB struct {
-	tracks map[string]SnowTrack
-}
-
-func (db *TrackDB) Init() {
-	db.tracks = make(map[string]SnowTrack)
-}
-
-func (db *TrackDB) Add(t SnowTrack) error {
-	db.tracks[t.TrackID] = t
-	return nil
-}
-
-func (db *TrackDB) Count() int {
-	return len(db.tracks)
-}
-
-func (db *TrackDB) Get(ID string) (SnowTrack, bool) {
-	t, ok := db.tracks[ID]
-	return t, ok
-}
-
-func (db *TrackDB) GetAll() []SnowTrack {
-	all := make([]SnowTrack, 0, db.Count())
-	for _, s := range db.tracks {
-		all = append(all, s)
-	}
-
-}

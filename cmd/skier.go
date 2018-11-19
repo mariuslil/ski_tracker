@@ -34,33 +34,4 @@ type SkiersStorage interface {
 	GetAll() []Skier
 }
 
-type SkierDB struct {
-	skiers map[string]Skier
-}
-
-func (db *SkierDB) Init() {
-	db.skiers = make(map[string]Skier)
-}
-
-func (db *SkierDB) Add(S Skier) error {
-	db.skiers[S.SkierID] = S
-	return nil
-}
-
-func (db *SkierDB) Count() int {
-	return len(db.skiers)
-}
-
-func (db *SkierDB) Get(ID string) (Skier, bool) {
-	s, ok := db.skiers[ID]
-	return s, ok
-}
-
-func (db *SkierDB) GetAll() []Skier {
-	all := make([]Skier, 0, db.Count())
-	for _, s := range db.skiers {
-		all = append(all, s)
-	}
-}
-
 

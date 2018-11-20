@@ -20,7 +20,7 @@ The project is hosted in a container through heroku.
 Link to the live web app: https://whispering-springs-32793.herokuapp.com/
 
 
-total work hours: ~
+total work hours: 45 hours
 
 ## Setup
 
